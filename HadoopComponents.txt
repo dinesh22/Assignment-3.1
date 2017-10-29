@@ -1,0 +1,71 @@
+Hadoop Components :
+
+a)HDFS :
+It is the most important component of Hadoop Ecosystem. HDFS is the primary storage system of Hadoop. 
+Hadoop distributed file system (HDFS) is a java based file system that provides scalable, fault tolerance, reliable and cost efficient data storage for Big data. 
+HDFS is a distributed filesystem that runs on commodity hardware. HDFS is already configured with default configuration for many installations. 
+Most of the time for large clusters configuration is needed. Hadoop interact directly with HDFS by shell-like commands.
+
+There are two major components of Hadoop HDFS- NameNode and DataNode. Let’s now discuss these Hadoop HDFS Components-
+
+i. NameNode
+
+It is also known as Master node. NameNode does not store actual data or dataset. 
+NameNode stores Metadata i.e. number of blocks, their location, on which Rack, which Datanode the data is stored and other details. It consists of files and directories.
+
+Tasks of HDFS NameNode:
+1.Manage file system namespace.
+2.Regulates client’s access to files.
+3.Executes file system execution such as naming, closing, opening files and directories.
+
+ii. DataNode
+
+It is also known as Slave. HDFS Datanode is responsible for storing actual data in HDFS. Datanode performs read and write operation as per the request of the clients. 
+Replica block of Datanode consists of 2 files on the file system. 
+The first file is for data and second file is for recording the block’s metadata. HDFS Metadata includes checksums for data.
+At startup, each Datanode connects to its corresponding Namenode and does handshaking. Verification of namespace ID and software version of DataNode take place by handshaking. 
+At the time of mismatch found, DataNode goes down automatically.
+
+Tasks of HDFS DataNode
+
+DataNode performs operations like block replica creation, deletion, and replication according to the instruction of NameNode.
+DataNode manages data storage of the system.
+Refer HDFS Comprehensive Guide to read Hadoop HDFS in detail.
+
+b)MapReduce :
+
+Hadoop MapReduce is the core component of Hadoop which provides data processing. 
+MapReduce is a software framework for easily writing applications that process the vast amount of structured and unstructured data stored in the Hadoop Distributed File system.
+
+MapReduce programs are parallel in nature, thus are very useful for performing large-scale data analysis using multiple machines in the cluster. 
+Thus, it improves the speed and reliability of cluster this parallel processing.
+
+Working of MapReduce
+
+MapReduce works by breaking the processing into two phases:
+1.Map phase
+2.Reduce phase
+Each phase has key-value pairs as input and output. In addition, programmer also specifies two functions: map function and reduce function
+
+Map function takes a set of data and converts it into another set of data, where individual elements are broken down into tuples (key/value pairs). Read Mapper in detail.
+
+Reduce function takes the output from the Map as an input and combines those data tuples based on the key and accordingly modifies the value of the key. Read Reducer in detail.
+
+Features of MapReduce:
+1.Simplicity – MapReduce jobs are easy to run. Applications can be written in any language such as java, C++, and python.
+2.Scalability – MapReduce can process petabytes of data.
+3.Speed – By means of parallel processing problems that take days to solve, it is solved in hours and minutes by MapReduce.
+Fault Tolerance – MapReduce takes care of failures. If one copy of data is unavailable, another machine has a copy of the same key pair which can be used for solving the same subtask.
+
+c)YARN :
+
+Hadoop YARN (Yet Another Resource Negotiator) provides the resource management. 
+YARN is called as the operating system of Hadoop as it is responsible for managing and monitoring workloads. 
+It allows multiple data processing engines such as real-time streaming and batch processing to handle data stored on a single platform.
+
+YARN has been projected as a data operating system for Hadoop2. Main features of YARN are:
+1.Flexibility – Enables other purpose-built data processing models beyond MapReduce (batch), such as interactive and streaming. 
+Due to this feature of YARN, other applications can also be run along with Map Reduce programs in Hadoop2.
+2.Efficiency – As many applications run on the same cluster, Hence, efficiency of Hadoop increases without much effect on quality of service.
+3.Shared – Provides a stable, reliable, secure foundation and shared operational services across multiple workloads.
+ Additional programming models such as graph processing and iterative modeling are now possible for data processing.
